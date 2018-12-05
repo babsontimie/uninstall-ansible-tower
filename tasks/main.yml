@@ -1,0 +1,21 @@
+---
+- name: Get the list of all Ansible Tower packages.
+  shell: rpm -qa | grep ansible-tower
+  register: packages
+
+- name: Remove all Ansible Tower packages.
+  yum:
+    name: "{{item}}"
+    state: absent
+  loop:
+    - "{{packages.stdout_lines}}"
+    - "{{package}}" 
+
+- name: Delete configuration files and directories related to Ansible Tower.
+  file:
+    path: "{{item}}"
+    state: absent
+    force: True
+  loop:
+    - "{{paths}}" 
+

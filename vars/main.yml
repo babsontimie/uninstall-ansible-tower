@@ -1,0 +1,9 @@
+---
+paths:
+  - /var/lib/pgsql
+  - /etc/tower
+  - /var/lib/awx
+  - /var/lib/rabbitmq
+
+package:
+  - rabbitmq-server
