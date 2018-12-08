@@ -8,17 +8,16 @@
 
 - name: Remove all Ansible Tower packages.
   yum:
-    name: "{{item}}"
+    name: "{{ item }}"
     state: absent
   loop:
-    - "{{packages.stdout_lines}}"
-    - "{{package}}" 
+    - "{{ packages.stdout_lines }}"
+    - "{{ package }}" 
 
 - name: Delete configuration files and directories related to Ansible Tower.
   file:
-    path: "{{item}}"
+    path: "{{ item }}"
     state: absent
     force: True
   loop:
-    - "{{paths}}" 
-
+    - "{{ paths }}"
