@@ -1,6 +1,7 @@
 ---
 - name: Stop Ansible Tower services
   command: ansible-tower-service stop
+  changed_when: false
 
 - name: Get the list of all Ansible Tower packages.
   shell: rpm -qa | grep ansible-tower
