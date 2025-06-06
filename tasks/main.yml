@@ -19,6 +19,6 @@
   file:
     path: "{{ item }}"
     state: absent
-    force: True
-  loop:
-    - "{{ paths }}"
+  loop: "{{ paths }}"
+
+
